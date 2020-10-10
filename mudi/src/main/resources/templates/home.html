@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Home</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container"> 
+	<div  class="card" th:each="p : ${pedidos}">
+		<div th:text="${p.nomeProduto}" class="card-header">Nome do Produto</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-12  col-sm-8 mb-3">
+					<div class="row">
+						<div class="col-md-4">Valor <span th:text="${p.valorNegociavel}">200,00</span></div>
+						<div class="col-md-8">Data da Entrega: <span th:text="${p.dataDaEntrega}">10/10/2020</span></div>
+					</div>
+					<div>Produto</div>
+					<div>url do Produto</div>
+					<div><input class="form-control" th:value="${p.urlProduto}" value="url do produto"/></div>
+					<div>Descrição</div>
+					<div>
+						<textarea class="form-control" th:text="${p.descricao}" rows="4" cols="40">descrição do produto</textarea>
+					</div>
+				</div>
+				<div class="col-12  col-sm-4">
+					<div>
+						<img  th:src="${p.urlImagem}" class="img-thumbnail"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
